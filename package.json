@@ -5,7 +5,14 @@
     "dependencies": {
         "socket.io": "latest",
         "express": "latest",
-        "jade": "latest"
+        "jade": "latest",
+        "nconf" : "latest",
+        "restify" : "latest",
+        "bunyan"  : "latest",
+        "winston" : "latest",
+        "chai"    : "latest",
+        "toolbox" : "latest",
+        "underscore" : "latest"
     },
     "author": "developer"
 }

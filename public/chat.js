@@ -7,7 +7,9 @@ window.onload = function() {
     var content = document.getElementById("content");
  
     socket.on('message', function (data) {
+        console.log("got message");
         if(data.message) {
+            console.log("got message with data");
             messages.push(data.message);
             var html = '';
             for(var i=0; i<messages.length; i++) {
