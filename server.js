@@ -19,27 +19,26 @@ app.get("/emit", function(req, res)
 {
     var i;
     console.log(socketClients);
-    for(i = 0; i < socketClients.length; i++)
+    for(var client in socketClients)
     {
-        var socket = socketClients[i];
-        socket.emit('message', {message : "emitting via api call."});
+        var socket = socketClients[client];
+        socket.emit("message", {message : "emmitting via api call."});
     }
     res.status(200);
     res.send("success");
 });
 
 var server = app.listen(port);
+console.log("Listening on port: " + port);
 
 var io = require("socket.io").listen(server);
 io.sockets.on("connection", function (socket) {
     console.log("got socket client");
     console.log(socket);
-    socketClients.push[socket];
-    // socket.on("send", function (data) {
-    //     console.log("got message; tag:send; " + data.valueOf());
-    //     io.sockets.emit("message", data);
-    // });
+    var hs = socket.handshake;
+    // console.log("handshake");
+    // console.log(hs);
+    socketClients[socket.id] = socket;
+    console.log("all clients");
+    console.log(socketClients);
 });
-
-
-console.log("Listening on port: " + port);
