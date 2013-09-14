@@ -8,7 +8,7 @@ exports.test = function(clients)
             var socket = clients[i];
             socket.emit("message", { message : "emmitting via api call."});
         }
-        console.log("sent messages to " + i + " clients.");
+        // console.log("sent messages to " + i + " clients.");
         res.status(200);
         res.send("success");
     }
