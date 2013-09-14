@@ -1,0 +1,11 @@
+{
+    "name": "Present!er",
+    "version": "0.0.1",
+    "description": "Real time presentations",
+    "dependencies": {
+        "socket.io": "latest",
+        "express": "latest",
+        "jade": "latest"
+    },
+    "author": "developer"
+}
