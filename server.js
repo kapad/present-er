@@ -15,7 +15,7 @@ app.get("/emit", presenter.test(socketClients));
 app.get("/start", presenter.start(socketClients));
 app.get("/next", presenter.nextSlide(socketClients));
 app.get("/previous", presenter.previousSlide(socketClients));
-app.get("/render-laser", presenter.renderLaser(socketClients));
+app.get("/render-laser/:x/:y", presenter.renderLaser(socketClients));
 app.get("/laser-off", presenter.laserOff(socketClients));
 
 var server = app.listen(port);

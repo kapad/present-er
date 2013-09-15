@@ -53,6 +53,9 @@ exports.renderLaser = function(clients)
     return function(req, res)
     {
         console.log(req);
+        console.log(req.params);
+        console.log(req.params.x);
+        console.log(req.params.y);
         res.send("success");
     }
 }

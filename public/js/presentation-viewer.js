@@ -15,6 +15,9 @@ function parseMessage(data)
             else
                 renderLaser(data.coordinates.x, data.coordinates.y);
             break;
+        case 'end':
+            presentationOver();
+            break;
         default:
             console.log("unknown type. " + type);
     }
@@ -51,22 +54,29 @@ function start()
 
 function next()
 {
-
+    renderSlide(slider.next());
 }
 
 function previous()
 {
-    
+    renderSlide(slider.previous());
 }
 
 function renderLaser(x, y)
 {
-
+    var img = $("div#holder img.visible-image").eq(0);
+    var div = $("div#holder").eq(0);
+    var webx = (div.width() - img.width())/2 + x;
+    var weby = (div.height() - img.height())/2 +y;
+    var circle = $("div#circle").eq(0);
+    circle.removeClass("invisible");
+    circle.css("left", webx);
+    circle.css("top", weby);
 }
 
 function laserOff()
 {
-
+    $("#circle").removeClass().addClass("invisible");
 }
 
 (function()
