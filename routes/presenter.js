@@ -6,6 +6,16 @@ var images = [
 
 var presentSlide = 0;
 
+function emitClients(clients, data)
+{
+    var i = 0;
+    for(i = 0; i < clients.length; i++)
+    {
+        var socket = clients[i];
+        socket.emit("message", data);
+    }
+}
+
 exports.test = function(clients)
 {
     return function(req, res)
@@ -26,8 +36,10 @@ exports.start = function(clients)
 {
     return function(req, res)
     {
-        console.log(req);
-        res.send("success");
+        var data = { type : "start" };
+        emitClients(clients, data);
+        res.status(200);
+        res.send();
     }
 }
 
@@ -35,16 +47,20 @@ exports.nextSlide = function(clients)
 {
     return function(req, res)
     {
-        console.log(req);
-        res.send("success");
+        var data = { type : "next" };
+        emitClients(clients, data);
+        res.status(200);
+        res.send();
     }
 }
 exports.previousSlide = function(clients)
 {
     return function(req, res)
     {
-        console.log(req);
-        res.send("success");
+        var data = { type : "previous" };
+        emitClients(clients, data);
+        res.status(200);
+        res.send();
     }
 }
 
@@ -52,11 +68,18 @@ exports.renderLaser = function(clients)
 {
     return function(req, res)
     {
-        console.log(req);
-        console.log(req.params);
-        console.log(req.params.x);
-        console.log(req.params.y);
-        res.send("success");
+        var data = 
+        {
+            type : "laser",
+            coordinates : 
+            {
+                x : req.params.x,
+                y : req.params.y
+            }
+        };
+        emitClients(clients, data);
+        res.status(200);
+        res.send();
     }
 }
 
@@ -64,7 +87,9 @@ exports.laserOff = function(clients)
 {
     return function(req, res)
     {
-        console.log(req);
-        res.send("success");
+        var data = { type : "laser" };
+        emitClients(clients, data);
+        res.status(200);
+        res.send();
     }
 }

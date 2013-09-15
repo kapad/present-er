@@ -3,6 +3,9 @@ function parseMessage(data)
     var param = data.type;
     switch(type)
     {
+        case "start":
+            start();
+            break;
         case 'next':
             next();
             break;
