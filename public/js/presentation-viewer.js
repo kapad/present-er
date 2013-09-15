@@ -1,9 +1,9 @@
 window.onload = function() {
 
     // var messages = [];
-    var field = document.getElementById("field");
-    var sendButton = document.getElementById("send");
-    var content = document.getElementById("content");
+    // var field = document.getElementById("field");
+    // var sendButton = document.getElementById("send");
+    // var content = document.getElementById("content");
  
     // socket.on('message', function (data) {
     //     console.log("got message");
@@ -19,6 +19,8 @@ window.onload = function() {
     //         console.log("There is a problem:", data);
     //     }
     // });
+    
+    // declare the vars from the DOM here.
     
     var socket = io.connect('http://localhost:3700');
 

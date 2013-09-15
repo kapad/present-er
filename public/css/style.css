@@ -1,0 +1,16 @@
+html, body
+{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+canvas#main
+{
+    height: 100%;
+    width: 100%;
+    background-color: "blue";
+}
+img.hidden-image
+{
+    visibility: collapse;
+}
