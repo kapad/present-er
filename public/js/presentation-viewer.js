@@ -1,7 +1,7 @@
 function parseMessage(data)
 {
     var param = data.type;
-    switch(type)
+    switch(param)
     {
         case "start":
             start();
