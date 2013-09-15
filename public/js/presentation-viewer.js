@@ -1,6 +1,23 @@
 function parseMessage(data)
 {
-
+    var param = data.type;
+    switch(type)
+    {
+        case 'next':
+            next();
+            break;
+        case 'previous':
+            previous();
+            break;
+        case 'laser':
+            if(typeof data.coordinates == undefined)
+                laserOff();
+            else
+                renderLaser(data.coordinates.x, data.coordinates.y);
+            break;
+        default:
+            console.log("unknown type. " + type);
+    }
 }
 
 function renderSlide(num)

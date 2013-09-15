@@ -9,10 +9,6 @@ var socketClients = [];
 
 app.use(express.static(__dirname + "/public"));
 
-// app.set("views", __dirname + "/tpl");
-// app.set("view engine", "jade");
-// app.engine("jade", require("jade").__express);
-
 app.get("/", viewer.index);
 
 app.get("/emit", presenter.test(socketClients));
