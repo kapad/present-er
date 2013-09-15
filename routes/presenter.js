@@ -1,3 +1,11 @@
+var images = [
+    "/img/p1.png",
+    "/img/p2.png",
+    "/img/p3.png"
+];
+
+var presentSlide = 0;
+
 exports.test = function(clients)
 {
     return function(req, res)
