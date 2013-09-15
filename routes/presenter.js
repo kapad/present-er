@@ -68,13 +68,17 @@ exports.renderLaser = function(clients)
 {
     return function(req, res)
     {
+        var sx = 720;
+        var sy = 480;
+        var rx = req.params.x/sx;
+        var ry = req.params.y/sy;
         var data = 
         {
             type : "laser",
             coordinates : 
             {
-                x : req.params.x,
-                y : req.params.y
+                x : rx,
+                y : ry
             }
         };
         emitClients(clients, data);
