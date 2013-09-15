@@ -68,8 +68,8 @@ exports.renderLaser = function(clients)
 {
     return function(req, res)
     {
-        var sx = 720;
-        var sy = 480;
+        var sx = 1200;
+        var sy = 768;
         var rx = req.params.x/sx;
         var ry = req.params.y/sy;
         var data = 
