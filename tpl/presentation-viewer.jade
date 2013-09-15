@@ -10,4 +10,6 @@ html(lang="en")
             - for(var i = 0; i < image_urls.length; i++)
                 img.hidden-image(src=image_urls[i])
             div#circle.invisible
+        div.invisible
+            - image_urls.length;
         script(src="/js/presentation-viewer.js" type="text/javascript")

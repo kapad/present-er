@@ -13,10 +13,10 @@ function parseMessage(data)
             previous();
             break;
         case 'laser':
-            if(typeof data.coordinates == undefined)
-                laserOff();
-            else
+            if(data.hasOwnProperty('coordinates'))
                 renderLaser(data.coordinates.x, data.coordinates.y);
+            else
+                laserOff();
             break;
         case 'end':
             presentationOver();
@@ -52,7 +52,7 @@ function start()
     {
         console.log("need to refresh.");
     }
-    renderSlide(slider.next());
+    renderSlide(slider.reset());
 }
 
 function next()
@@ -72,7 +72,7 @@ function renderLaser(x, y)
     var webx = (div.width() - img.width())/2 + (x * img.width());
     var weby = (div.height() - img.height())/2 + (y * img.height());
     var circle = $("div#circle").eq(0);
-    circle.removeClass("invisible");
+    circle.removeClass("invisible").addClass("visible");
     circle.css("left", webx);
     circle.css("top", weby);
 }
@@ -86,7 +86,7 @@ function laserOff()
 {
     $(document).ready(function()
     {
-        var socket = io.connect('http://37.139.30.151:3700');
+        var socket = io.connect('http://localhost:3700');
         socket.on('message', function(data)
         {
             parseMessage(data);
@@ -104,7 +104,8 @@ var slider = (function()
     };
     tracker.next = function()
     {
-        number++;
+        if(number < 3)
+            number++;
         return number;
     };
     tracker.previous = function()
@@ -112,5 +113,10 @@ var slider = (function()
         number--;
         return number;
     };
+    tracker.reset = function()
+    {
+        number = 1;
+        return number;
+    }
     return tracker;
 })();

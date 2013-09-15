@@ -28,16 +28,19 @@ img.visible-image
 {
     display : block;
 }
+.invisible
+{
+    display: none;
+}
+.visible
+{
+    display: block;
+}
 #circle
 {
     background: #f00;
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    display: block;
     position: absolute;
-}
-#circle.invisible
-{
-    display: none;
 }
