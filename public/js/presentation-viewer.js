@@ -86,7 +86,7 @@ function laserOff()
 {
     $(document).ready(function()
     {
-        var socket = io.connect('http://localhost:3700');
+        var socket = io.connect('http://37.139.30.151:3700');
         socket.on('message', function(data)
         {
             parseMessage(data);
