@@ -16,10 +16,11 @@ app.use(express.static(__dirname + "/public"));
 app.get("/", viewer.index);
 
 app.get("/emit", presenter.test(socketClients));
-// app.get("/start", presenter.start(socketClients));
-// app.get("/next", presenter.nextSlide(socketClients));
-// app.get("/previous", presenter.previousSlide(socketClients));
-// app.get("/render-laser", presenter.renderLaser(socketClients));
+app.get("/start", presenter.start(socketClients));
+app.get("/next", presenter.nextSlide(socketClients));
+app.get("/previous", presenter.previousSlide(socketClients));
+app.get("/render-laser", presenter.renderLaser(socketClients));
+app.get("/laser-off", presenter.laserOff(socketClients));
 
 var server = app.listen(port);
 console.log("Listening on port: " + port);

@@ -6,8 +6,8 @@ html(lang="en")
         script(src="/socket.io/socket.io.js" type="text/javascript")
         link(rel="stylesheet" type="text/css" href="/css/style.css")
     body
-        //-canvas#main
-        //-    Your browser must support canvas and html5 for this site to work properly
-        - for(var i = 0; i < image_urls.length; i++)
-            img.hidden-image(src=image_urls[i])
+        div#holder
+            - for(var i = 0; i < image_urls.length; i++)
+                img.hidden-image(src=image_urls[i])
+            div#circle.invisible
         script(src="/js/presentation-viewer.js" type="text/javascript")

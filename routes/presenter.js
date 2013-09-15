@@ -14,10 +14,54 @@ exports.test = function(clients)
         for(i = 0; i < clients.length; i++)
         {
             var socket = clients[i];
-            socket.emit("message", { message : "emmitting via api call."});
+            socket.emit("message", { slide : 1 });
         }
         // console.log("sent messages to " + i + " clients.");
         res.status(200);
+        res.send("success");
+    }
+}
+
+exports.start = function(clients)
+{
+    return function(req, res)
+    {
+        console.log(req);
+        res.send("success");
+    }
+}
+
+exports.nextSlide = function(clients)
+{
+    return function(req, res)
+    {
+        console.log(req);
+        res.send("success");
+    }
+}
+exports.previousSlide = function(clients)
+{
+    return function(req, res)
+    {
+        console.log(req);
+        res.send("success");
+    }
+}
+
+exports.renderLaser = function(clients)
+{
+    return function(req, res)
+    {
+        console.log(req);
+        res.send("success");
+    }
+}
+
+exports.laserOff = function(clients)
+{
+    return function(req, res)
+    {
+        console.log(req);
         res.send("success");
     }
 }

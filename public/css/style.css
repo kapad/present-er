@@ -5,27 +5,39 @@ html, body
     margin: 0px;
     border: 0px;
 }
+div#holder
+{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    margin: auto auto;
+    border: 0px;
+}
 img
 {
     margin: auto auto;
+    border: 0px;
+    max-width : 98%;
+    max-height : 98%;
 }
 img.hidden-image
 {
-    /*visibility: collapse;*/
     display : none;
 }
 img.visible-image
 {
     display : block;
 }
-img.fit
+#circle
 {
-    max-width : 98%;
-    max-height : 98%;
-}
-#circle {
     background: #f00;
-    width: 1%;
-    height: 1%;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
+    display: block;
+    position: absolute;
+}
+#circle.invisible
+{
+    display: none;
 }

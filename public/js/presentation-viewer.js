@@ -1,48 +1,86 @@
-// window.onload = function() {
+function parseMessage(data)
+{
 
-//     // var messages = [];
-//     // var field = document.getElementById("field");
-//     // var sendButton = document.getElementById("send");
-//     // var content = document.getElementById("content");
- 
-//     // socket.on('message', function (data) {
-//     //     console.log("got message");
-//     //     if(data.message) {
-//     //         console.log("got message with data");
-//     //         messages.push(data.message);
-//     //         var html = '';
-//     //         for(var i=0; i<messages.length; i++) {
-//     //             html += messages[i] + '<br />';
-//     //         }
-//     //         content.innerHTML = html;
-//     //     } else {
-//     //         console.log("There is a problem:", data);
-//     //     }
-//     // });
-    
-//     // declare the vars from the DOM here.
-    
-//     $("#main").
-    
-//     var socket = io.connect('http://localhost:3700');
+}
 
-// }
+function renderSlide(num)
+{
+    $("div#holder img.visible-image").each(function()
+    {
+        $(this).removeClass().addClass("hidden-image");
+    });
+    var slide = $("div#holder img").eq((num-1));
+    slide.removeClass().addClass("visible-image");
+}
+
+function presentationOver()
+{
+    $("div#holder img").each(function()
+    {
+        $(this).removeClass().addClass("hidden-image");
+    });
+}
+
+function start()
+{
+    //check the current slide is zero
+    var slide = slider.get();
+    if(0 !== slide)
+    {
+        console.log("need to refresh.");
+    }
+    renderSlide(slider.next());
+}
+
+function next()
+{
+
+}
+
+function previous()
+{
+    
+}
+
+function renderLaser(x, y)
+{
+
+}
+
+function laserOff()
+{
+
+}
+
 (function()
 {
     $(document).ready(function()
     {
-        // var canvas = $("#main").get();
-        // function resizeCanvas()
-        // {
-        //     canvas.width = window.innerWidth*0.98;
-        //     canvas.height = window.innerHeight*0.98;
-        // }
-        // resizeCanvas();
-        // $(window).resize(function()
-        // {
-        //     resizeCanvas();
-        // });
-        // $(".visible-image").
-        
+        var socket = io.connect('http://localhost:3700');
+        socket.on('message', function(data)
+        {
+            parseMessage(data);
+        })
     });
+})();
+
+var slider = (function()
+{
+    var number = 0;
+    var tracker = {};
+    tracker.get = function()
+    {
+        return number;
+    };
+    tracker.next = function()
+    {
+        number++;
+        return number;
+    };
+    tracker.previous = function()
+    {
+        number--;
+        return number;
+    };
+    return tracker;
 })();
